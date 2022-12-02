@@ -4,6 +4,7 @@ import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.net.MalformedURLException;
@@ -28,17 +29,25 @@ public class FirstClass {
 
         //below code is going to invoke app on your device (provide absolute path here)
         desiredCapabilities.setCapability(MobileCapabilityType.APP, "C:\\Users\\user\\Documents\\Tools\\Appium\\Apps\\GestureTool.apk");
-        //if your session is not created normally appium will suggest you troubleshooting link you can set below capabilities then it will work
+/*
+        if your session is not created normally appium will suggest you troubleshooting link you can set below capabilities then it will work
+*/
         //https://github.com/appium/appium/blob/master/docs/en/writing-running-appium/android/activity-startup.md
 
 //        desiredCapabilities.setCapability("appPackage","com.davemac327.gesture.tool");
 //        desiredCapabilities.setCapability("appActivity","com.davemac327.gesture.tool.GestureBuilderActivity");
+        /*it will not ask you for the permission with below code*/
         desiredCapabilities.setCapability(MobileCapabilityType.NO_RESET, true);
 
 
         AndroidDriver<MobileElement> driver = new AndroidDriver<MobileElement>(new URL("http://127.0.0.1:4723/wd/hub"), desiredCapabilities);
        // driver.unlockDevice();
 
+       driver.findElementById("com.davemac327.gesture.tool:id/addButton").click();
+
+//      String actualData= driver.findElementById("com.davemac327.gesture.tool:id/gesture_name").getText();
+//      String expectedData="Create a gesture";
+//        Assert.assertEquals(expectedData,actualData);
 
     }
 }
