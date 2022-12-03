@@ -1,5 +1,6 @@
 package test;
 
+import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
 import org.openqa.selenium.Keys;
@@ -21,34 +22,31 @@ public class AppiumInspector02 {
 //    click done
 //    verify testing gesture is created
 //     */
-        DesiredCapabilities desiredCapabilities =  new DesiredCapabilities();
-        desiredCapabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME,"UiAutomator2");
-        desiredCapabilities.setCapability(MobileCapabilityType.PLATFORM_NAME,"Android");
-        desiredCapabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION,"10.0");
-        desiredCapabilities.setCapability(MobileCapabilityType.DEVICE_NAME,"1fd655780409");
-        desiredCapabilities.setCapability(MobileCapabilityType.APP,"/Users/ayyildiz/IdeaProjects/appiumEnglish/Apps/GestureTool.apk");
-        desiredCapabilities.setCapability(MobileCapabilityType.NO_RESET,true);
+        DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
 
-        AndroidDriver<WebElement> driver = new AndroidDriver<WebElement>(new URL("http://127.0.0.1:4723/wd/hub"),desiredCapabilities);
+        desiredCapabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
+        desiredCapabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UiAutomator2");
+        desiredCapabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "12.0");
+        desiredCapabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "R9YT60GPN7R");
+        desiredCapabilities.setCapability(MobileCapabilityType.NO_RESET, true);
+        desiredCapabilities.setCapability("appium:ensureWebviewsHavePages", true);
+        desiredCapabilities.setCapability("appium:nativeWebScreenshot", true);
+        desiredCapabilities.setCapability("appium:newCommandTimeout", 3600);
+        desiredCapabilities.setCapability("appium:connectHardwareKeyboard", true);
 
-        Thread.sleep(3000);
+        AndroidDriver<MobileElement> driver = new AndroidDriver<>(new URL("http://127.0.0.1:4723/wd/hub"), desiredCapabilities);
+        desiredCapabilities.setCapability(MobileCapabilityType.APP, "C:\\Users\\user\\Documents\\Tools\\Appium\\Apps\\GestureTool.apk");
 
-        WebElement addButton = driver.findElementById("com.davemac327.gesture.tool:id/addButton");
-        addButton.click();
-        Thread.sleep(2000);
-        WebElement nameBox = driver.findElementById("com.davemac327.gesture.tool:id/gesture_name");
-        nameBox.sendKeys("testing1");
-        driver.findElementById("com.davemac327.gesture.tool:id/gestures_overlay").click();
-
-        WebElement doneButton = driver.findElementById("com.davemac327.gesture.tool:id/done");
-        doneButton.click();
-        String actualText = driver.findElementByXPath("//android.widget.TextView[@text='testing']").getText();
-
-        Assert.assertEquals(actualText,"testing1");
-
-        Thread.sleep(3000);
-        //close session
-        driver.quit();
+//        driver.findElementById("com.davemac327.gesture.tool:id/addButton").click();
+//        Thread.sleep(3000);
+//        String actualText =  driver.findElementById("android:id/title").getText();
+//        String expectedText = "Create a gesture";
+//
+//        Assert.assertEquals(actualText,expectedText);
+//        Thread.sleep(3000);
+//        driver.findElementByXPath("(//android.widget.Button)[2]").click();
+//
+//        System.out.println("test passed");
 
 
     }

@@ -13,7 +13,7 @@ import java.net.URL;
 
 public class FirstClass {
     @Test
-    public void test() throws MalformedURLException {
+    public void test() throws MalformedURLException, InterruptedException {
         DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
         //we can write desired capabilities in different ways as below
         //https://appium.io/docs/en/writing-running-appium/caps/
@@ -41,13 +41,13 @@ public class FirstClass {
 
 
         AndroidDriver<MobileElement> driver = new AndroidDriver<MobileElement>(new URL("http://127.0.0.1:4723/wd/hub"), desiredCapabilities);
-       // driver.unlockDevice();
+        // driver.unlockDevice();
+//        Thread.sleep(3000);
+//        driver.findElementById("com.davemac327.gesture.tool:id/addButton").click();
 
-       driver.findElementById("com.davemac327.gesture.tool:id/addButton").click();
-
-//      String actualData= driver.findElementById("com.davemac327.gesture.tool:id/gesture_name").getText();
-//      String expectedData="Create a gesture";
-//        Assert.assertEquals(expectedData,actualData);
+//        String actualData = driver.findElementByXPath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.LinearLayout[1]").getText();
+//        String expectedData = "Create a gesture";
+//        Assert.assertEquals(expectedData, actualData);
 
     }
 }

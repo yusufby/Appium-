@@ -19,7 +19,7 @@ public class AppiumInspector01 {
         desiredCapabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION,"10.0");
         desiredCapabilities.setCapability(MobileCapabilityType.DEVICE_NAME,"RealDevice");
         //below code is going to invoke app on your device (provide absolute path here)
-        desiredCapabilities.setCapability(MobileCapabilityType.APP,"/Users/ayyildiz/IdeaProjects/appiumEnglish/Apps/GestureTool.apk");
+        desiredCapabilities.setCapability(MobileCapabilityType.APP, "C:\\Users\\user\\Documents\\Tools\\Appium\\Apps\\GestureTool.apk");
         desiredCapabilities.setCapability(MobileCapabilityType.NO_RESET,true);
 
         AndroidDriver<MobileElement> driver = new AndroidDriver<MobileElement>(new URL("http://127.0.0.1:4723/wd/hub"),desiredCapabilities);
