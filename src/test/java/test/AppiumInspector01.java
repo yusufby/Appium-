@@ -42,7 +42,7 @@ public class AppiumInspector01 {
 
         System.out.println("test passed");
 
-
+        System.out.println("test passed");
 
     }
 }
