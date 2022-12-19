@@ -17,15 +17,15 @@ public class ChromeTestingUsingRemoteDevice {
         DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
         desiredCapabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
         desiredCapabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UiAutomator2");
-        desiredCapabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "10.0");
-        desiredCapabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "RealDevice");
+        desiredCapabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "12.0");
+        desiredCapabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "R9YT60GPN7R");
         //below code is going to invoke app on your device (provide absolute path here)
-      //  desiredCapabilities.setCapability(MobileCapabilityType.APP, "/Users/ayyildiz/IdeaProjects/appiumEnglish/Apps/GestureTool.apk");
+        //  desiredCapabilities.setCapability(MobileCapabilityType.APP, "/Users/ayyildiz/IdeaProjects/appiumEnglish/Apps/GestureTool.apk");
         //desiredCapabilities.setCapability(MobileCapabilityType.NO_RESET, true);
-        desiredCapabilities.setCapability("appPackage","com.android.chrome");
-        desiredCapabilities.setCapability("appActivity","com.google.android.apps.chrome.Main");
+        desiredCapabilities.setCapability("appPackage", "com.android.chrome");
+        desiredCapabilities.setCapability("appActivity", "com.google.android.apps.chrome.Main");
         // desiredCapabilities.setCapability(MobileCapabilityType.BROWSER_NAME,"chrome");
-        desiredCapabilities.setCapability("chromedriverExecutable","/Users/ayyildiz/IdeaProjects/appiumEnglish/chromeDriver/chromedriver");
+        desiredCapabilities.setCapability("chromedriverExecutable", "/Users/ayyildiz/IdeaProjects/appiumEnglish/chromeDriver/chromedriver");
 
 
         AndroidDriver<MobileElement> driver = new AndroidDriver<MobileElement>(new URL("http://127.0.0.1:4723/wd/hub"), desiredCapabilities);
@@ -41,7 +41,7 @@ public class ChromeTestingUsingRemoteDevice {
             System.out.println(contextName);
             Thread.sleep(5000);
             //select which view you want to proceed
-            if (contextName.toString().contains("WEBVIEW")){
+            if (contextName.toString().contains("WEBVIEW")) {
                 driver.context((String) contextName);
                 Thread.sleep(5000);
             }
